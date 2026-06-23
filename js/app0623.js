@@ -3,10 +3,11 @@
 /****************************************
  * 麥灶嘎逼 商城
  ****************************************/
-const LIFF_ID ="2010462373";
+const LIFF_ID ="2010462373-nzIhd1yt";
 
 const GAS_URL =
-"https://script.google.com/macros/s/AKfycbz_EBwt99nNI8vzv1P0X_F_CpCqmARZAlCr0mbDWMiOjGHjGF_oI7rJKh8GsyVZBgTm/exec";
+"https://script.google.com/macros/s/AKfycbwHTjZ3MO4fSpGVPLh_1cc0XBtpagLjvmThCUtq8VIsGCk90uJGEaQPaD9d6VQp3sMV/exec";
+
 
 /****************************************
  * 商品資料
@@ -670,3 +671,4 @@ NT$${order.total}
     }
   );
 }
+
