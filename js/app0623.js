@@ -553,11 +553,11 @@ async function submitOrder() {
 
         const response =
         await fetch(
-        GAS_URL,
-        {
-            method:"POST",
-            body:formData
-        }
+        GAS_URL +
+            "?data=" +
+            encodeURIComponent(
+                JSON.stringify(items)
+            )
         );
 
     const result =
