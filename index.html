@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+name="viewport"
+content="width=device-width,initial-scale=1.0">
+
+<title>麥灶嘎逼｜跑者的咖啡補給站</title>
+
+<link rel="stylesheet" href="css/style0623.css">
+
+<script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- 品牌區 -->
+
+    <div class="brand">
+
+        <div class="logo-placeholder">
+
+            麥灶嘎逼
+
+        </div>
+
+        <h1>
+            麥灶嘎逼
+        </h1>
+
+        <p>
+            跑者的咖啡補給站
+        </p>
+
+    </div>
+
+    <!-- Hero -->
+
+    <div class="hero">
+
+        <h2>
+            今天跑步了嗎？
+        </h2>
+
+        <p>
+            跑前提神，跑後享受，
+            每一杯都陪你跑得更遠。
+        </p>
+
+    </div>
+
+    <!-- 商品區 -->
+
+    <h2 class="section-title">
+
+        跑者系列
+
+    </h2>
+
+    <div id="productList">
+
+    </div>
+
+    <!-- 配送 -->
+
+    <div class="card">
+
+        <h3>
+            配送方式
+        </h3>
+
+        <select id="shippingMethod">
+
+            <option value="7-11店到店">
+                7-11 店到店
+            </option>
+
+            <option value="全家店到店">
+                全家 店到店
+            </option>
+
+        </select>
+
+    </div>
+
+    <!-- 客戶資料 -->
+
+    <div class="card">
+
+        <h3>
+            收件資料
+        </h3>
+
+        <input
+            id="name"
+            placeholder="姓名">
+
+        <input
+            id="phone"
+            placeholder="手機">
+
+        <input
+            id="address"
+            placeholder="店到店門市名稱">
+
+    </div>
+
+    <!-- 訂單摘要 -->
+
+    <div class="summary">
+
+        <div class="summary-row">
+
+            <span>
+                商品總額
+            </span>
+
+            <span id="subtotal">
+                0
+            </span>
+
+        </div>
+
+        <div class="summary-row">
+
+            <span>
+                運費
+            </span>
+
+            <span id="shippingFee">
+                60
+            </span>
+
+        </div>
+
+        <hr>
+
+        <div class="summary-row total">
+
+            <span>
+                應付金額
+            </span>
+
+            <span id="grandTotal">
+                60
+            </span>
+
+        </div>
+       
+        <button
+            class="checkout-btn"
+            onclick="submitOrder()">
+
+            送出訂單
+
+        </button>
+
+    </div>
+
+</div>
+
+<!-- 訂單完成 -->
+
+<div
+id="successPage"
+class="success-page hidden">
+
+    <div class="success-card">
+
+        <h2>
+
+            ☕
+
+            訂單送出成功
+
+        </h2>
+
+        <p id="orderInfo">
+
+        </p>
+
+        <div class="bank-info">
+
+            <h3>
+                轉帳資訊
+            </h3>
+
+            <p>
+                銀行：玉山銀行
+            </p>
+
+            <p>
+                帳號：123-456-7891234
+            </p>
+
+            <p>
+                戶名：麥灶嘎逼有限公司
+            </p>
+
+        </div>
+
+        <button
+            onclick="copyOrderInfo()">
+
+            複製訂單資訊
+
+        </button>
+
+    </div>
+
+</div>
+
+<script src="js/app0623.js"></script>
+
+</body>
+
+</html>
