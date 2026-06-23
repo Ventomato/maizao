@@ -6,7 +6,9 @@
 const LIFF_ID ="2010462373-nzIhd1yt";
 
 const GAS_URL =
-"https://script.google.com/macros/s/AKfycbwHTjZ3MO4fSpGVPLh_1cc0XBtpagLjvmThCUtq8VIsGCk90uJGEaQPaD9d6VQp3sMV/exec";
+"https://script.google.com/macros/s/AKfycbyUTVY6oPmDz9m38cHuI3TFNOcLDtxNEjz2MUOoUTLFY42CrUqx5_roy0wF0o0_6cJl/exec";
+
+
 
 
 /****************************************
@@ -527,21 +529,36 @@ async function submitOrder() {
 
   try {
 
-    const response =
-      await fetch(
+    // const response =
+    //   await fetch(
+    //     GAS_URL,
+    //     {
+    //       method: "POST",
+
+    //       headers: {
+    //         "Content-Type":
+    //           "application/json"
+    //       },
+
+    //       body:
+    //         JSON.stringify(data)
+    //     }
+    //   );
+    const formData = new FormData();
+
+        formData.append(
+        "data",
+        JSON.stringify(data)
+        );
+
+        const response =
+        await fetch(
         GAS_URL,
         {
-          method: "POST",
-
-          headers: {
-            "Content-Type":
-              "application/json"
-          },
-
-          body:
-            JSON.stringify(data)
+            method:"POST",
+            body:formData
         }
-      );
+        );
 
     const result =
       await response.json();
