@@ -562,7 +562,7 @@ async function submitOrder() {
 
     const result =
       await response.json();
-
+      console.log(result);
     showSuccess(result.order);
 
   } catch (err) {
