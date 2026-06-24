@@ -6,7 +6,7 @@
 const LIFF_ID ="2010462373-nzIhd1yt";
 
 const GAS_URL =
-"https://script.google.com/macros/s/AKfycbyUTVY6oPmDz9m38cHuI3TFNOcLDtxNEjz2MUOoUTLFY42CrUqx5_roy0wF0o0_6cJl/exec";
+"https://script.google.com/macros/s/AKfycby0l1Iw5-q-QA1_-49dYDRkyJhUKxdkvef6RK2DXAm6m675PhN1ppJQpF3GgOol-yqf/exec";
 
 
 
@@ -556,9 +556,10 @@ async function submitOrder() {
         GAS_URL +
             "?data=" +
             encodeURIComponent(
-                JSON.stringify(items)
+                JSON.stringify(data)
             )
         );
+        
 
     const result =
       await response.json();
