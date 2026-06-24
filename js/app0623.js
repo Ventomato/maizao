@@ -476,19 +476,15 @@ function buildOrderItems() {
  * 送出訂單
  ****************************************/
 
-async function submitOrder() {
+function submitOrder() {
 
-  const items =
-    buildOrderItems();
+  const items = buildOrderItems();
 
   if (items.length === 0) {
 
-    alert(
-      "請至少選擇一項商品"
-    );
+    alert("請至少選擇一項商品");
 
     return;
-
   }
 
   const data = {
@@ -527,62 +523,47 @@ async function submitOrder() {
 
   };
 
-  try {
+  const script =
+    document.createElement("script");
 
-    // const response =
-    //   await fetch(
-    //     GAS_URL,
-    //     {
-    //       method: "POST",
-
-    //       headers: {
-    //         "Content-Type":
-    //           "application/json"
-    //       },
-
-    //       body:
-    //         JSON.stringify(data)
-    //     }
-    //   );
-    const formData = new FormData();
-
-        formData.append(
-        "data",
-        JSON.stringify(data)
-        );
-
-        const response =
-        await fetch(
-        GAS_URL +
-            "?data=" +
-            encodeURIComponent(
-                JSON.stringify(data)
-            )
-        );
-        
-
-    const result =
-      await response.json();
-      console.log(result);
-    showSuccess(result.order);
-
-  } catch (err) {
-
-    console.error(err);
-
-    alert(
-      "送出失敗，請稍後再試"
+  script.src =
+    GAS_URL +
+    "?callback=orderSuccess" +
+    "&data=" +
+    encodeURIComponent(
+      JSON.stringify(data)
     );
 
-  }
+  document.body.appendChild(
+    script
+  );
 
 }
 
 /****************************************
  * 成功畫面
  ****************************************/
+function orderSuccess(result){
+
+  console.log(
+    "訂單成功",
+    result
+  );
+
+  showSuccess(result);
+
+}
 
 function showSuccess(order) {
+
+  if(!order){
+
+    alert(
+      "訂單資料錯誤"
+    );
+
+    return;
+  }
 
   const info = `
 
@@ -638,55 +619,4 @@ updateCart();
 
 initLiff();
 
-/*免運提示 */
-const remain =
-1000 - subtotal;
-
-if(remain > 0){
-
-message =
-`再差 NT$${remain}
-即可免運`;
-
-}else{
-
-message =
-"已達免運門檻 🎉";
-
-}
-
-/*訂單送出後line通知 */
-function sendLineNotify(order){
-
-  const token = "你的LINE Notify Token";
-
-  const msg =
-`☕ 麥灶嘎逼新訂單
-
-訂單編號：
-${order.orderId}
-
-姓名：
-${order.name}
-
-金額：
-NT$${order.total}
-`;
-
-  UrlFetchApp.fetch(
-    "https://notify-api.line.me/api/notify",
-    {
-      method:"post",
-
-      headers:{
-        Authorization:
-          "Bearer " + token
-      },
-
-      payload:{
-        message:msg
-      }
-    }
-  );
-}
 
